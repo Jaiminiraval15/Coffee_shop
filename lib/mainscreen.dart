@@ -1,6 +1,8 @@
+import 'package:coffee_shop/detailedScreen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
+
   List img = [
     "Latte",
     "Mocha",
@@ -17,12 +19,14 @@ class MainScreen extends StatelessWidget {
     "Thicker intense coffee",
     "Espresso-based coffee"
   ];
-  List imgPrice =[
-    "\$10",
-    "\$15",
-    "\$30",
-    "\$20",
-    "\$25",
+  List imgPrice = ["\$10", "\$15", "\$30", "\$20", "\$25", "\$30"];
+  List imgDesp =[
+    " A latte or caffè latte is a milk coffee that boasts a silky layer of foam as a real highlight to the drink. A true latte will be made up of one or two shots of espresso, steamed milk and a final, thin layer of frothed milk on top. ",
+    "A caffé mocha is basically a chocolate-flavored variant of a caffé latte so it’s also based on espresso and hot milk. The difference is that a mocha contains chocolate flavoring and sweetener.",
+    "French press coffee requires uniform, coarsely ground beans, about the size of breadcrumbs. Smaller sized grains (like those that often come pre-ground) will get through the filter and create sediment in your coffee.",
+    "A frappe is an iced beverage that has been shaken, blended or beaten to produce a tasty, foamy, and refreshing drink. It is served cold, often with whipped cream and toppings.",
+    "Espresso features bold and concentrated coffee flavors and a velvety texture that are achieved through brewing under high pressure, typically 9 bars.",
+    "A well-made cappuccino has incredible flavor and texture. It has a bold coffee taste and some sweetness from the naturally occurring lactose sugar in milk. ",
   ];
 
   @override
@@ -64,7 +68,9 @@ class MainScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailedScreen(img[i],imgPrice[i],imgDesp[i]),));
+                          },
                           child: Container(
                             margin: EdgeInsets.all(10),
                             child: Image.asset("images/${img[i]}.jpg"),
@@ -74,14 +80,21 @@ class MainScreen extends StatelessWidget {
                         ),
                         Padding(
                           padding: EdgeInsets.only(bottom: 8),
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            child: Text(img[i],
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)
-                            ),
+                          child: Row(
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    img[i],
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Padding(
@@ -89,7 +102,6 @@ class MainScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     imgInfo[i],
@@ -100,13 +112,10 @@ class MainScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
-
                             ],
                           ),
                         ),
-
                       ],
-
                     ),
                   )
               ],
