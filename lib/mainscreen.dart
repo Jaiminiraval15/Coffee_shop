@@ -2,7 +2,6 @@ import 'package:coffee_shop/detailedScreen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
-
   List img = [
     "Latte",
     "Mocha",
@@ -20,7 +19,7 @@ class MainScreen extends StatelessWidget {
     "Espresso-based coffee"
   ];
   List imgPrice = ["\$10", "\$15", "\$30", "\$20", "\$25", "\$30"];
-  List imgDesp =[
+  List imgDesp = [
     " A latte or caffè latte is a milk coffee that boasts a silky layer of foam as a real highlight to the drink. A true latte will be made up of one or two shots of espresso, steamed milk and a final, thin layer of frothed milk on top. ",
     "A caffé mocha is basically a chocolate-flavored variant of a caffé latte so it’s also based on espresso and hot milk. The difference is that a mocha contains chocolate flavoring and sweetener.",
     "French press coffee requires uniform, coarsely ground beans, about the size of breadcrumbs. Smaller sized grains (like those that often come pre-ground) will get through the filter and create sediment in your coffee.",
@@ -69,7 +68,12 @@ class MainScreen extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailedScreen(img[i],imgPrice[i],imgDesp[i]),));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => DetailedScreen(
+                                      img[i], imgPrice[i], imgDesp[i]),
+                                ));
                           },
                           child: Container(
                             margin: EdgeInsets.all(10),
@@ -81,18 +85,23 @@ class MainScreen extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(bottom: 8),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    img[i],
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
+                              Text(
+                                img[i],
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                imgPrice[i],
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
                               ),
                             ],
                           ),
