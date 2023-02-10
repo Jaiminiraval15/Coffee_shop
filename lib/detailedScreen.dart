@@ -179,7 +179,7 @@ class _DetailedScreenState extends State<DetailedScreen> {
           ),
         ),
       ),
-      extendBodyBehindAppBar: true,
+
       backgroundColor: Colors.brown,
     );
   }
