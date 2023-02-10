@@ -2,13 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:core';
 
-class DetailedScreen extends StatelessWidget {
+class DetailedScreen extends StatefulWidget {
   @override
   String img;
-  String imgPrice;
   String imgDesp;
+  int imgPrice;
 
   DetailedScreen(this.img, this.imgPrice, this.imgDesp);
+
+  @override
+  State<DetailedScreen> createState() => _DetailedScreenState();
+}
+
+class _DetailedScreenState extends State<DetailedScreen> {
+  int counter = 1;
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +33,8 @@ class DetailedScreen extends StatelessWidget {
                   },
                   child: Icon(
                     Icons.arrow_back,
-                    color: Colors.black54,
+                    color: Colors.black,
+                    size: 28,
                   ),
                 ),
               ),
@@ -34,7 +42,7 @@ class DetailedScreen extends StatelessWidget {
                 height: 40,
               ),
               Center(
-                child: Image.asset("images/$img.jpg",
+                child: Image.asset("images/${widget.img}.jpg",
                     width: MediaQuery.of(context).size.width / 1.2),
               ),
               SizedBox(
@@ -46,11 +54,12 @@ class DetailedScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      img,
+                      widget.img,
                       style: TextStyle(
                           fontSize: 25,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Lobster-Regular',
                           letterSpacing: 1),
                     ),
                     SizedBox(height: 25),
@@ -69,16 +78,27 @@ class DetailedScreen extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(
-                                  CupertinoIcons.minus,
-                                  size: 16,
-                                  color: Colors.black,
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      if (counter > 1) {
+                                        counter--;
+                                      } else {
+                                        counter = 1;
+                                      }
+                                    });
+                                  },
+                                  child: Icon(
+                                    CupertinoIcons.minus,
+                                    size: 16,
+                                    color: Colors.black,
+                                  ),
                                 ),
                                 SizedBox(
                                   width: 15,
                                 ),
                                 Text(
-                                  "1",
+                                  "$counter",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16),
@@ -86,16 +106,23 @@ class DetailedScreen extends StatelessWidget {
                                 SizedBox(
                                   width: 15,
                                 ),
-                                Icon(
-                                  CupertinoIcons.add,
-                                  size: 16,
-                                  color: Colors.black,
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      counter++;
+                                    });
+                                  },
+                                  child: Icon(
+                                    CupertinoIcons.add,
+                                    size: 16,
+                                    color: Colors.black,
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                           Text(
-                            imgPrice,
+                            "\$${widget.imgPrice * counter}",
                             style: TextStyle(fontSize: 20, color: Colors.white),
                           ),
                         ],
@@ -105,13 +132,13 @@ class DetailedScreen extends StatelessWidget {
                       height: 25,
                     ),
                     Text(
-                      imgDesp,
+                      widget.imgDesp,
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    Padding(padding: EdgeInsets.only(top: 60)),
+                    Padding(padding: EdgeInsets.only(top: 50)),
                     Row(
                       children: [
                         Text(
@@ -134,7 +161,25 @@ class DetailedScreen extends StatelessWidget {
           ),
         ),
       ),
+      bottomSheet: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          color: Colors.brown.shade300,
+        ),
+        child: Center(
+          child: InkWell(
+            onTap: (){},
+            child: Text("Order Now",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
 
+                )),
+          ),
+        ),
+      ),
+      extendBodyBehindAppBar: true,
       backgroundColor: Colors.brown,
     );
   }

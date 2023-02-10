@@ -18,11 +18,11 @@ class MainScreen extends StatelessWidget {
     "Thicker intense coffee",
     "Espresso-based coffee"
   ];
-  List imgPrice = ["\$10", "\$15", "\$30", "\$20", "\$25", "\$30"];
+  List imgPrice = [10,15,30,20,25,30];
   List imgDesp = [
     " A latte or caffè latte is a milk coffee that boasts a silky layer of foam as a real highlight to the drink. A true latte will be made up of one or two shots of espresso, steamed milk and a final, thin layer of frothed milk on top. ",
     "A caffé mocha is basically a chocolate-flavored variant of a caffé latte so it’s also based on espresso and hot milk. The difference is that a mocha contains chocolate flavoring and sweetener.",
-    "French press coffee requires uniform, coarsely ground beans, about the size of breadcrumbs. Smaller sized grains (like those that often come pre-ground) will get through the filter and create sediment in your coffee.",
+    "French press coffee requires uniform, coarsely ground beans, about the size of breadcrumbs. Smaller sized grains will get through the filter and create sediment in your coffee.",
     "A frappe is an iced beverage that has been shaken, blended or beaten to produce a tasty, foamy, and refreshing drink. It is served cold, often with whipped cream and toppings.",
     "Espresso features bold and concentrated coffee flavors and a velvety texture that are achieved through brewing under high pressure, typically 9 bars.",
     "A well-made cappuccino has incredible flavor and texture. It has a bold coffee taste and some sweetness from the naturally occurring lactose sugar in milk. ",
@@ -31,14 +31,16 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         actions: [
-          Icon(Icons.search_rounded),
+          Icon(Icons.search_rounded,size:28),
         ],
         leading: Padding(
             padding: EdgeInsets.all(10),
-            child: Image.asset("images/coffeshop.jpg")),
+            child: Icon(Icons.person,size:28,),
+        ),
         backgroundColor: Colors.transparent,
       ),
       body: SingleChildScrollView(
@@ -93,10 +95,11 @@ class MainScreen extends StatelessWidget {
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
+                                  fontFamily: 'Lobster-Regular',
                                 ),
                               ),
                               Text(
-                                imgPrice[i],
+                                "\$${imgPrice[i]}",
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -117,6 +120,8 @@ class MainScreen extends StatelessWidget {
                                     style: TextStyle(
                                       fontSize: 13,
                                       color: Colors.white,
+                                      overflow: TextOverflow.fade,
+
                                     ),
                                   ),
                                 ],
