@@ -20,6 +20,7 @@ class _DetailedScreenState extends State<DetailedScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+
         child: SafeArea(
           child: Padding(
             padding: EdgeInsets.only(top: 20, bottom: 20),
@@ -91,7 +92,7 @@ class _DetailedScreenState extends State<DetailedScreen> {
                                   child: Icon(
                                     CupertinoIcons.minus,
                                     size: 16,
-                                    color: Colors.black,
+                                    color: Colors.white,
                                   ),
                                 ),
                                 SizedBox(
@@ -101,7 +102,8 @@ class _DetailedScreenState extends State<DetailedScreen> {
                                   "$counter",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                      fontSize: 16,
+                                  color: Colors.white),
                                 ),
                                 SizedBox(
                                   width: 15,
@@ -115,7 +117,7 @@ class _DetailedScreenState extends State<DetailedScreen> {
                                   child: Icon(
                                     CupertinoIcons.add,
                                     size: 16,
-                                    color: Colors.black,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ],
@@ -133,7 +135,7 @@ class _DetailedScreenState extends State<DetailedScreen> {
                     ),
                     Text(
                       widget.imgDesp,
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      style: TextStyle(fontSize: 16, color: Colors.white,fontStyle: FontStyle.italic,),
                     ),
                     SizedBox(
                       height: 20,

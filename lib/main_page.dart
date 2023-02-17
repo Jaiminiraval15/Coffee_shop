@@ -13,28 +13,32 @@ class MainPage extends StatelessWidget {
                 fit: BoxFit.cover,
                 opacity:0.9),
           ),
-          child: Column(
-            children: [
-              InkWell(
-                onTap: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context) => MainScreen(),));
-                },
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(15),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 100, 20, 30),
+            child: Column(
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => MainScreen(),));
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Text("Get Started",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          letterSpacing: 1,
+
+                        )),
                   ),
-                  child: Text("Get Started",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        letterSpacing: 1,
-                      )),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           )),
     );
   }
