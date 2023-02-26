@@ -1,14 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:core';
+import 'dart:convert';
+
 
 class DetailedScreen extends StatefulWidget {
   @override
+
   String img;
   String imgDesp;
   int imgPrice;
+   DetailedScreen(this.img, this.imgPrice, this.imgDesp);
+  //final MyModel myModel;
 
-  DetailedScreen(this.img, this.imgPrice, this.imgDesp);
+ // const DetailedScreen({Key? key, required this.myModel}) : super(key: key);
 
   @override
   State<DetailedScreen> createState() => _DetailedScreenState();
@@ -186,3 +191,25 @@ class _DetailedScreenState extends State<DetailedScreen> {
     );
   }
 }
+// class MyModel {
+//   String CoffeeName;
+//   String CoffeePrice;
+//   String CoffeeDescription;
+//   String avatar;
+//
+//   MyModel({
+//     required this.CoffeeName,
+//     required this.CoffeeDescription,
+//     required this.avatar,
+//     required this.CoffeePrice
+//   });
+//
+//   factory MyModel.fromJson(Map<String, dynamic> json){
+//     return MyModel(
+//         CoffeeName: json['CoffeeName'],
+//         CoffeePrice: json['CoffeePrice'],
+//         CoffeeDescription: json['CoffeeDescription'],
+//         avatar: json['avatar']
+//     );
+//   }
+// }
