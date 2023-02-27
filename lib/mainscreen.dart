@@ -95,8 +95,16 @@ class _MainScreenState extends State<MainScreen> {
                               children: [
                                 InkWell(child: Icon(Icons.add),
                                   onTap: () {
-                                   Navigator.push(context,MaterialPageRoute(builder: (context) => AddItem()
-                                   ,));
+                                   Navigator.push(context,MaterialPageRoute(builder: (context) {
+                                     return AddItem(null);
+                                   }
+                                   ,)).then((value){
+                                     if (value==true){
+                                       setState(() {
+
+                                       });
+                                     }
+                                   });
                                   },
                                 ),
                               ],
@@ -130,7 +138,15 @@ class _MainScreenState extends State<MainScreen> {
                                 child: Column(children: [
                                   InkWell(
                                     onTap: () {
-
+                                      {
+                                        Navigator.push(context,MaterialPageRoute(builder: (context) {
+                                          return AddItem(jsonDecode(snapshot.data!.body.toString())[index]);
+                                        }
+                                          ,)).then((value){
+                                          if (value==true){
+                                            setState(() {
+                                            });
+                                          }});}
                                     },
                                     child: Container(
                                       margin: EdgeInsets.all(10),
@@ -227,9 +243,17 @@ class _MainScreenState extends State<MainScreen> {
                                     ]),
                                 child: Column(children: [
                                   InkWell(
-                                    onTap: () {
-
-                                    },
+                                    onTap: ()
+                                                          {
+                                      Navigator.push(context,MaterialPageRoute(builder: (context) {
+                                        return AddItem(jsonDecode(snapshot.data!.body.toString())[index]);
+                                              }
+                                        ,)).then((value){
+                                                  if (value==true){
+                                                        setState(() {
+                                                     });
+                                                 }});
+                                                           },
                                     child: Container(
                                       margin: EdgeInsets.all(10),
                                       child: Image.network(jsonDecode(snapshot.data!.body.toString())[index]['avatar'].toString()),

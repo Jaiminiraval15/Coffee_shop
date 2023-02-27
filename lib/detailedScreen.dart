@@ -191,25 +191,3 @@ class _DetailedScreenState extends State<DetailedScreen> {
     );
   }
 }
-// class MyModel {
-//   String CoffeeName;
-//   String CoffeePrice;
-//   String CoffeeDescription;
-//   String avatar;
-//
-//   MyModel({
-//     required this.CoffeeName,
-//     required this.CoffeeDescription,
-//     required this.avatar,
-//     required this.CoffeePrice
-//   });
-//
-//   factory MyModel.fromJson(Map<String, dynamic> json){
-//     return MyModel(
-//         CoffeeName: json['CoffeeName'],
-//         CoffeePrice: json['CoffeePrice'],
-//         CoffeeDescription: json['CoffeeDescription'],
-//         avatar: json['avatar']
-//     );
-//   }
-// }
